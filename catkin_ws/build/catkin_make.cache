@@ -1,0 +1,2 @@
+ardrone_joystick:ardrone_tutorials:tum_ardrone:tum_simulator/cvg_sim_gazebo:tum_simulator/cvg_sim_gazebo_plugins:tum_simulator/cvg_sim_msgs:tum_simulator/message_to_tf:tum_simulator/tum_simulator
+-DCATKIN_DEVEL_PREFIX=/root/share/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/root/share/catkin_ws/install -G Unix Makefiles

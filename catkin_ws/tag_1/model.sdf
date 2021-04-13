@@ -1,0 +1,23 @@
+
+ 			<?xml version="1.0"?>
+ 			<sdf version="1.6">
+ 			<model name="Aruco tag1">
+ 				<static>true</static>
+ 				<link name="robot_link">
+ 				<visual name="body_visual">
+ 					<geometry>
+ 					<box>
+ 						<size>0.3 0.3 0.01 </size>
+ 					</box>
+ 					</geometry>
+ 					<material> <!-- Body material -->
+ 					<script>
+ 						<uri>model://tag_1/materials/scripts/tag.material</uri>
+ 						<name>aruco_tag_1</name>
+ 					</script>
+ 					</material> <!-- End Body Material -->
+ 				</visual>
+ 				</link>
+ 			</model>
+ 			</sdf>
+ 			

@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/root/share/catkin_ws/build/tum_ardrone/CMakeFiles/thirdparty"
+		},
+		{
+			"file" : "/root/share/catkin_ws/build/tum_ardrone/CMakeFiles/thirdparty.rule"
+		},
+		{
+			"file" : "/root/share/catkin_ws/build/tum_ardrone/CMakeFiles/thirdparty-complete.rule"
+		},
+		{
+			"file" : "/root/share/catkin_ws/build/thirdparty/src/thirdparty-stamp/thirdparty-install.rule"
+		},
+		{
+			"file" : "/root/share/catkin_ws/build/thirdparty/src/thirdparty-stamp/thirdparty-mkdir.rule"
+		},
+		{
+			"file" : "/root/share/catkin_ws/build/thirdparty/src/thirdparty-stamp/thirdparty-download.rule"
+		},
+		{
+			"file" : "/root/share/catkin_ws/build/thirdparty/src/thirdparty-stamp/thirdparty-update.rule"
+		},
+		{
+			"file" : "/root/share/catkin_ws/build/thirdparty/src/thirdparty-stamp/thirdparty-patch.rule"
+		},
+		{
+			"file" : "/root/share/catkin_ws/build/thirdparty/src/thirdparty-stamp/thirdparty-configure.rule"
+		},
+		{
+			"file" : "/root/share/catkin_ws/build/thirdparty/src/thirdparty-stamp/thirdparty-build.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"thirdparty"
+		],
+		"name" : "thirdparty"
+	}
+}
