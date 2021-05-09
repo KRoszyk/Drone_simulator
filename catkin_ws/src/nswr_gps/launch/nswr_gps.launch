@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <node pkg="nswr_gps" type="nswr_gps" name="nswr_gps" output="screen"/>
+</launch>
