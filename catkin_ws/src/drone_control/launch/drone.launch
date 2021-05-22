@@ -4,4 +4,5 @@
     <node name="detector" pkg="drone_control" type="detector.py" output="screen" />
     <node type="rviz" name="rviz" pkg="rviz" args="-d $(find drone_control)/rviz/config.rviz"/>
     <node name="flying" pkg="drone_control" type="flying.py" output="screen" />
+    <node name="odom_converter" pkg="drone_control" type="coords_converter.py" output="screen" />
 </launch>
