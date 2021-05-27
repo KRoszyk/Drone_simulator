@@ -267,10 +267,10 @@
       <pose frame=''>9 4 0 0 -0 0</pose>
     </model>
     <state world_name='default'>
-      <sim_time>829 43000000</sim_time>
-      <real_time>354 759274983</real_time>
-      <wall_time>1620499881 880573867</wall_time>
-      <iterations>354137</iterations>
+      <sim_time>1383 677000000</sim_time>
+      <real_time>53 661303750</real_time>
+      <wall_time>1622125381 677956471</wall_time>
+      <iterations>53474</iterations>
       <model name='Aruco tag1'>
         <pose frame=''>2.94835 -14.0374 0.014776 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -286,6 +286,36 @@
         <scale>1 1 1</scale>
         <link name='robot_link'>
           <pose frame=''>-14.3048 2.24098 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Aruco tag100'>
+        <pose frame=''>-0.009824 0.000753 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='robot_link'>
+          <pose frame=''>-0.009824 0.000753 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Aruco tag20'>
+        <pose frame=''>-4.1685 13.3799 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='robot_link'>
+          <pose frame=''>-4.1685 13.3799 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Aruco tag50'>
+        <pose frame=''>11.2553 3.94421 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='robot_link'>
+          <pose frame=''>11.2553 3.94421 0 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -422,10 +452,10 @@
         </link>
       </model>
       <model name='nist_elevated_floor_120'>
-        <pose frame=''>9 4 0 0 -0 0</pose>
+        <pose frame=''>9.04553 3.98971 0 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='nist_elevated_floor_120'>
-          <pose frame=''>9 4 0 0 -0 0</pose>
+          <pose frame=''>9.04553 3.98971 0 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -452,13 +482,13 @@
         </link>
       </model>
       <model name='quadrotor'>
-        <pose frame=''>0.004526 -0.002906 0.039996 0 4e-05 0.002219</pose>
+        <pose frame=''>-0.01168 0.000516 0.039994 0 -4e-05 -0.019012</pose>
         <scale>1 1 1</scale>
         <link name='base_link'>
-          <pose frame=''>0.004526 -0.002906 0.039996 0 4e-05 0.002219</pose>
-          <velocity>0.003221 6e-06 -5.8e-05 -0.000163 0.080524 -1e-06</velocity>
-          <acceleration>4.86938 0.00931 3.53077 2.91117 1.02469 -3.14112</acceleration>
-          <wrench>7.30407 0.013965 5.29616 0 -0 0</wrench>
+          <pose frame=''>-0.01168 0.000516 0.039994 0 -4e-05 -0.019012</pose>
+          <velocity>-0.001582 3e-05 -0.005845 -0.000759 -0.039544 1e-06</velocity>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -14.7 0 -0 0</wrench>
         </link>
       </model>
       <light name='sun'>
@@ -467,7 +497,7 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose frame=''>24.3347 14.3874 31.9073 0 0.844488 -2.67796</pose>
+        <pose frame=''>42.7822 1.76402 40.5123 0 0.8978 -2.82599</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
@@ -1809,6 +1839,72 @@
         <gravity>1</gravity>
       </link>
       <pose frame=''>0.575792 -6.28667 0 0 -0 0</pose>
+    </model>
+    <model name='Aruco tag100'>
+      <static>1</static>
+      <link name='robot_link'>
+        <visual name='body_visual'>
+          <geometry>
+            <box>
+              <size>0.3 0.3 0.01</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://tag_100/materials/scripts/tag.material</uri>
+              <name>aruco_tag_100</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+      <pose frame=''>-0.009824 0.000753 0 0 -0 0</pose>
+    </model>
+    <model name='Aruco tag20'>
+      <static>1</static>
+      <link name='robot_link'>
+        <visual name='body_visual'>
+          <geometry>
+            <box>
+              <size>0.3 0.3 0.01</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://tag_20/materials/scripts/tag.material</uri>
+              <name>aruco_tag_20</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+      <pose frame=''>-4.1685 13.3799 0 0 -0 0</pose>
+    </model>
+    <model name='Aruco tag50'>
+      <static>1</static>
+      <link name='robot_link'>
+        <visual name='body_visual'>
+          <geometry>
+            <box>
+              <size>0.3 0.3 0.01</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://tag_50/materials/scripts/tag.material</uri>
+              <name>aruco_tag_50</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+      <pose frame=''>11.159 2.43978 0 0 -0 0</pose>
     </model>
   </world>
 </sdf>
