@@ -60,11 +60,12 @@ class Fly:
         x_diff = x_diff / (self.Image_center[0])
         y_diff = y_diff / (self.Image_center[1])
         
-          
         if self.detection_counter <= 2: self.controller.SetCommand(pitch = x_diff*0.3, roll = y_diff*0.3, z_velocity=-0.5)
-        else: self.controller.SetCommand(pitch = 0.5*x_diff, roll = 0.5*y_diff, z_velocity=-0.5)
+        else: self.controller.SetCommand(pitch = x_diff, roll = y_diff, z_velocity=-0.3)
         
-        if (abs(x_diff) <= 0.05 and abs(y_diff) <= 0.05 and self.drone_z <= 1.2) or self.drone_z <= 1: 
+       # if (abs(x_diff) <= 0.1 and abs(y_diff) <= 0.1 and self.drone_z < 1.3) or self.drone_z < 1.5: 
+        
+        if self.drone_z < 1.5: 
             self.controller.SetCommand(pitch = 0, roll = 0, z_velocity=0)
             self.controller.SendLand()
             if self.dest_dict and self.controller.status == DroneStatus.Landed:
@@ -84,7 +85,9 @@ class Fly:
         angle = math.degrees(self.calculate_angle((self.drone_x, self.drone_y), self.marker_coords))
         self.diff_angle = angle - self.controller.rotation
 
-        print("os z drona:", self.drone_z)
+        print("kat:", self.controller.rotation)
+        print("kurs:", angle)
+        print("diff:", self.diff_angle)
         if self.controller.status == DroneStatus.Landed and self.dest_dict and not self.on_target:
             self.controller.SendTakeoff()
         if self.controller.status == DroneStatus.Flying and self.drone_z < 10: 
@@ -100,8 +103,8 @@ class Fly:
 
     def calculate_angle(self, point1, point2):
         angle = math.atan2((point2[1]-point1[1]), (point2[0]-point1[0]))     
-        if point2[0] < point1[0] and point1[1] > point2[1]:
-            angle = -1 * angle
+        print('wspolrzedne drona:', point1[0], point1[1])
+        print('wspolrzedne markera:', point2[0], point2[1])
         return angle
 
 if __name__ == '__main__':
