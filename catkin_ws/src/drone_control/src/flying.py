@@ -24,24 +24,24 @@ class Fly:
         self.controller = BDC()
         self.twist = Twist()
 
-        #drone's coordinates
+        #Drone's coordinates
         self.drone_x = 0
         self.drone_y = 0
         self.drone_z = 0
         #angle towards aruco marker
         self.angle = 0
 
-        #difference between drone's angle and its destination
+        #Difference between drone's angle and its destination
         self.diff_angle = 0
 
         self.aruco_center = (320, 180)
         self.Image_center = (320, 180)
         self.old_aruco_center = None
 
-        #the variable is incremented each frame the aruco marker is detected
+        #The variable is incremented each frame the aruco marker is detected
         self.detection_counter = 0
 
-        #aruco markers' coordinates dictionary
+        #Aruco markers' coordinates dictionary
         self.dest_dict = OrderedDict()
         self.dest_dict['1'] = (3, -14)
         self.dest_dict['10'] = (-14, 2)
@@ -56,45 +56,43 @@ class Fly:
         self.detected = False
         self.rotated = False
         self.on_target = False
-
-    #get aruco's id
+        
     def callback_id(self, message):
+        #Get aruco's id
         self.aruco_id = message.data
 
-    #get aruco's center coordinates (in pixels)
     def callback_center(self, message):
+        #Get aruco's center coordinates (in pixels)
         self.aruco_center = message.data
 
     def rotate_2_angle_and_fly(self):
-        #rotate towards the next marker
+        #Rotate towards the next marker
         if self.diff_angle >= 5:
             self.controller.SetCommand(yaw_velocity=0.3, pitch=0)
         elif self.diff_angle <= -5:
             self.controller.SetCommand(yaw_velocity=-0.3, pitch=0)
-        #if the angle is correct go forward to the next marker
+        #If the angle is correct fly forward to the next marker
         else:
             self.controller.SetCommand(pitch=1)
 
     def land_on_target(self):
-        #calculate the difference (in pixels) between image's center and detected aruco's center
+        #Calculate the difference (in pixels) between image's center and detected aruco's center
         x_diff = self.Image_center[0] - self.aruco_center[0]
         y_diff = self.Image_center[1] - self.aruco_center[1]
         x_diff = x_diff / (self.Image_center[0])
         y_diff = y_diff / (self.Image_center[1])
 
-        #drone's landing movement is slowed if aruco marker's visibility keeps getting obstructed
+        #Drone's landing movement is slower if aruco marker's visibility keeps getting obstructed
         if self.detection_counter <= 2:
             self.controller.SetCommand(pitch=x_diff * 0.3, roll=y_diff * 0.3, z_velocity=-0.5)
         else:
             self.controller.SetCommand(pitch=x_diff, roll=y_diff, z_velocity=-0.3)
 
-        # if (abs(x_diff) <= 0.1 and abs(y_diff) <= 0.1 and self.drone_z < 1.3) or self.drone_z < 1.5:
-
-        #if the drone is low enough commence a built-in landing sequence
+        #If the drone is low enough commence a built-in landing sequence
         if self.drone_z < 1.5:
             self.controller.SetCommand(pitch=0, roll=0, z_velocity=0)
             self.controller.SendLand()
-            #if the drone has landed, prepare for the next destination
+            #If the drone has landed, prepare for the next destination
             if self.dest_dict and self.controller.status == DroneStatus.Landed:
                 self.on_target = True
                 self.dest_dict.popitem(last=False)
@@ -112,7 +110,7 @@ class Fly:
         self.drone_y = odom.pose.pose.position.y
         self.drone_z = odom.pose.pose.position.z
 
-        #find an angle towards aruco marker
+        #Find an angle towards aruco marker
         angle = math.degrees(self.calculate_angle((self.drone_x, self.drone_y), self.marker_coords))
 
         #Get an angular difference between destination's angle and drone's current angle
@@ -121,13 +119,13 @@ class Fly:
         print("kurs:", angle)
         print("diff:", self.diff_angle)
 
-        #take off if the drone is on the ground
+        #Take off if the drone is on the ground
         if self.controller.status == DroneStatus.Landed and self.dest_dict and not self.on_target:
             self.controller.SendTakeoff()
-        #keep going up if the drone is flying low
+        #Keep going up if the drone is flying low
         if self.controller.status == DroneStatus.Flying and self.drone_z < 10:
             self.controller.SetCommand(z_velocity=2)
-        #if the drone is high enough, fly towards the next destination
+        #If the drone is high enough, fly towards the next destination
         elif self.controller.status == DroneStatus.Flying and self.drone_z >= 10:
             self.rotate_2_angle_and_fly()
 
@@ -135,7 +133,7 @@ class Fly:
     def callback_detected(self, message):
         self.detected = message.data
 
-        # if the proper aruco marker is detected, begin landing on it
+        #If the proper aruco marker is detected, begin landing on it
         if self.detected and self.aruco_id == int(self.dest_id):
             self.detection_counter += 1
             self.land_on_target()
@@ -143,7 +141,7 @@ class Fly:
 
     def calculate_angle(self, point1, point2):
 
-        # calculate an angle towards aruco marker
+        #Calculate an angle towards aruco marker
         angle = math.atan2((point2[1] - point1[1]), (point2[0] - point1[0]))
         print('wspolrzedne drona:', point1[0], point1[1])
         print('wspolrzedne markera:', point2[0], point2[1])
