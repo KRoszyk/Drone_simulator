@@ -37,7 +37,7 @@ class Fly:
         self.Image_center = (320, 180)
         self.old_aruco_center = None
 
-        #the variable is incremented every frame if aruco's marker is properly detected
+        #the variable is incremented each frame the aruco marker is detected
         self.detection_counter = 0
 
         #aruco markers' coordinates dictionary
