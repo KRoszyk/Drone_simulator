@@ -63,7 +63,7 @@ Note, however, that joystick control is not compatible with autonomous drone fli
 # Simulator performance results
 The following screenshot shows an interface from the RViz environment presenting, the image from the bottom camera during the landing phase and the detection of the Aruco marker. 
 
-![Screenshot](https://github.com/KRoszyk/License_plates_OpenCV_project/blob/main/openCV__smaller_images/resized_image.PNG)
+![Screenshot](https://github.com/KRoszyk/Drone_simulator/blob/master/imgs/marker_detected.png)
 
 In addition, a video of a drone flying between locations defined by Aruco markers is presented below.
 [![Alt text](https://img.youtube.com/vi/1fQAQxSL0_g/0.jpg)](https://youtu.be/1fQAQxSL0_g)
