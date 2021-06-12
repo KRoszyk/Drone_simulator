@@ -61,7 +61,7 @@ roslaunch ardrone_joystick teleop.launch
 Note, however, that joystick control is not compatible with autonomous drone flight and you should always disable one of the nodes responsible for manual or automatic control.
 
 # Simulator performance results
-The following screenshot shows an interface from the RViz environment presenting, the image from the bottom camera during the landing phase and the detection of the Aruco marker. 
+The following screenshot shows the bottom camera image during the landing phase and the detection of the Aruco marker. 
 
 ![Screenshot](https://github.com/KRoszyk/Drone_simulator/blob/master/imgs/marker_detected.png)
 
