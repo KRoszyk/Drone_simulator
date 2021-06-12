@@ -24,10 +24,11 @@ class Fly:
         self.controller = BDC()
         self.twist = Twist()
 
-        #drone's global coordinates and angle
+        #drone's coordinates
         self.drone_x = 0
         self.drone_y = 0
         self.drone_z = 0
+        #angle towards aruco marker
         self.angle = 0
 
         #difference between drone's angle and its destination
