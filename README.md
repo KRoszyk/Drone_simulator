@@ -67,3 +67,10 @@ The following screenshot shows the bottom camera image during the landing phase 
 
 In addition, a video of a drone flying between locations defined by Aruco markers is presented below.
 [![Alt text](https://img.youtube.com/vi/1fQAQxSL0_g/0.jpg)](https://youtu.be/1fQAQxSL0_g)
+
+# Contributors
+[Kamil Roszyk](https://github.com/KRoszyk)
+
+[Witold Sempruch](https://github.com/Witsemp)
+
+[Jarosław Bożek](https://github.com/JaroslawBozek)
